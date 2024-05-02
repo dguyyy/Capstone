@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4rxcm8ixdj6t"]
+
+[ext_resource type="Script" path="res://Spheres.gd" id="1_taubo"]
+[ext_resource type="PackedScene" uid="uid://brqo3a5bgkl3u" path="res://sphere.tscn" id="2_tah6r"]
+
+[node name="RandomColorExample" type="Node3D"]
+
+[node name="Spheres" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+script = ExtResource("1_taubo")
+number_of_spheres = 32
+
+[node name="Sphere" parent="Spheres" instance=ExtResource("2_tah6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+visible = false

@@ -1,0 +1,163 @@
+[gd_scene load_steps=14 format=3 uid="uid://2mgmmvwf1mkv"]
+
+[ext_resource type="Script" path="res://Scene 1/Scene 1 box.gd" id="1_dqnd6"]
+[ext_resource type="Script" path="res://Scene 1/Scene 1 box2.gd" id="2_7yhm0"]
+[ext_resource type="Script" path="res://Scene 1/Scene 1 box3.gd" id="3_8rc7c"]
+[ext_resource type="Script" path="res://Scene 1/Scene 1 box4.gd" id="4_oh2ae"]
+[ext_resource type="FontFile" uid="uid://dotd6x813rlqh" path="res://TRJNDaVinci-Display copy.otf" id="5_wrdfg"]
+[ext_resource type="Script" path="res://Scene 1/first thing.gd" id="6_1rp3j"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yfg4f"]
+sky_top_color = Color(0, 0, 0, 1)
+sky_horizon_color = Color(0.5, 0.5, 0.5, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0.5, 0.5, 0.5, 1)
+
+[sub_resource type="Sky" id="Sky_rpoxc"]
+sky_material = SubResource("ProceduralSkyMaterial_yfg4f")
+
+[sub_resource type="Environment" id="Environment_otlp0"]
+background_mode = 2
+sky = SubResource("Sky_rpoxc")
+tonemap_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0q4or"]
+albedo_color = Color(1, 0.278431, 1, 1)
+emission = Color(1, 1, 1, 1)
+backlight_enabled = true
+backlight = Color(1, 1, 1, 1)
+refraction_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5po83"]
+albedo_color = Color(1, 0.278431, 1, 1)
+emission = Color(1, 1, 1, 1)
+backlight_enabled = true
+backlight = Color(1, 1, 1, 1)
+refraction_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g03gb"]
+albedo_color = Color(1, 0.278431, 1, 1)
+emission = Color(1, 1, 1, 1)
+backlight_enabled = true
+backlight = Color(1, 1, 1, 1)
+refraction_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fg83p"]
+albedo_color = Color(1, 0.278431, 1, 1)
+emission = Color(1, 1, 1, 1)
+backlight_enabled = true
+backlight = Color(1, 1, 1, 1)
+refraction_enabled = true
+
+[node name="Camera3D" type="Camera3D"]
+transform = Transform3D(1, -6.66422e-31, -1.5246e-23, -1.5246e-23, -4.37114e-08, -1, 0, 1, -4.37114e-08, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+near = 0.001
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_otlp0")
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, -1.5246e-23, 0, -6.66422e-31, -4.37114e-08, 1, -1.5246e-23, -1, -4.37114e-08, -2.08165e-12, -2.08165e-12, 2.08165e-12)
+
+[node name="Scene 1 box" type="CSGBox3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 100, 2.08165e-12)
+material = SubResource("StandardMaterial3D_0q4or")
+script = ExtResource("1_dqnd6")
+
+[node name="Scene 1 box2" type="CSGBox3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 100, 2.08165e-12)
+material = SubResource("StandardMaterial3D_5po83")
+script = ExtResource("2_7yhm0")
+
+[node name="Scene 1 box3" type="CSGBox3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 100, 2)
+material = SubResource("StandardMaterial3D_g03gb")
+script = ExtResource("3_8rc7c")
+
+[node name="Scene 1 box4" type="CSGBox3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 100, -2)
+material = SubResource("StandardMaterial3D_fg83p")
+script = ExtResource("4_oh2ae")
+
+[node name="Node" type="Node" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Node"]
+transform = Transform3D(-8.74228e-09, 5.2318e-16, 4.4, 6.97574e-17, 1.5, -1.53466e-15, -0.2, 5.2318e-16, -1.9233e-07, 4.16329e-12, 4.16329e-12, -2.1)
+visible = false
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Node"]
+transform = Transform3D(-8.74228e-09, 5.2318e-16, 4.4, 6.97574e-17, 1.5, -1.53466e-15, -0.2, 5.2318e-16, -1.9233e-07, 4.16329e-12, 4.16329e-12, 2.1)
+visible = false
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Node"]
+transform = Transform3D(0.2, 0, 0, 0, 1.5, 0, 0, 0, 4.4, 2.1, 4.16329e-12, 4.16329e-12)
+visible = false
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Node"]
+transform = Transform3D(0.2, 0, 0, 0, 1.5, 0, 0, 0, 4.4, -2.1, 4.16329e-12, 4.16329e-12)
+visible = false
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Node"]
+transform = Transform3D(-0.141421, 7.39889e-16, 3.11127, 6.97574e-17, 1.5, -1.53466e-15, -0.141421, -4.2113e-23, -3.11127, -1.5, 4.16329e-12, -1.5)
+visible = false
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Node"]
+transform = Transform3D(0.141421, 0, 3.11127, 0, 1.5, 0, -0.141421, 0, 3.11127, -1.5, 4.16329e-12, 1.5)
+visible = false
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Node"]
+transform = Transform3D(-0.141421, 7.39889e-16, 3.11127, 6.97574e-17, 1.5, -1.53466e-15, -0.141421, -4.2113e-23, -3.11127, 1.5, 4.16329e-12, 1.5)
+visible = false
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Node"]
+transform = Transform3D(0.141421, 0, 3.11127, 0, 1.5, 0, -0.141421, 0, 3.11127, 1.5, 4.16329e-12, -1.5)
+visible = false
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Node"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.605696, 2.08165e-12)
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+visible = false
+flip_faces = true
+radius = 122.547
+
+[node name="Label3D2" type="Label3D" parent="."]
+transform = Transform3D(1.5619e-15, 4.37114e-08, -1, 1, -4.37114e-08, -3.48787e-16, -4.37114e-08, -1, -4.37114e-08, 1.273, -1.27293e-08, -2.02326)
+modulate = Color(0, 0, 0, 1)
+text = "Hex
+Number:"
+font = ExtResource("5_wrdfg")
+
+[node name="first thing" type="Label3D" parent="."]
+transform = Transform3D(1.5619e-15, 4.37114e-08, -1, 1, -4.37114e-08, -3.48787e-16, -4.37114e-08, -1, -4.37114e-08, 1.273, 8.72035e-10, -1.7121)
+modulate = Color(0, 0, 0, 1)
+text = "HI"
+font = ExtResource("5_wrdfg")
+script = ExtResource("6_1rp3j")
+
+[node name="1" type="Label3D" parent="."]
+transform = Transform3D(1.5619e-15, 4.37114e-08, -1, 1, -4.37114e-08, -3.48787e-16, -4.37114e-08, -1, -4.37114e-08, 1.273, 1.74863e-08, -1.33201)
+modulate = Color(0, 0, 0, 1)
+text = "1
+"
+font = ExtResource("5_wrdfg")
+
+[node name="3" type="Label3D" parent="."]
+transform = Transform3D(1.5619e-15, -4.37114e-08, 1, -1, -4.37114e-08, -3.48787e-16, 4.37114e-08, -1, -4.37114e-08, -1.04509, 2.08213e-12, -1.332)
+modulate = Color(0, 0, 0, 1)
+text = "3
+"
+font = ExtResource("5_wrdfg")
+
+[node name="2" type="Label3D" parent="."]
+transform = Transform3D(-1, -8.74228e-08, -4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 8.74228e-08, -1, 1.91069e-15, 2.08165e-12, 0.729, -1.28)
+modulate = Color(0, 0, 0, 1)
+text = "2
+"
+font = ExtResource("5_wrdfg")
+
+[node name="4" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 4.37114e-08, -4.37114e-08, 3.55271e-15, 1, 9.96191e-23, -1, 1.89462e-15, 2.08165e-12, -0.729212, -1.2802)
+modulate = Color(0, 0, 0, 1)
+text = "4"
+font = ExtResource("5_wrdfg")

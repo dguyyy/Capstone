@@ -1,0 +1,81 @@
+[gd_scene load_steps=9 format=3 uid="uid://bgfg55mmmqb5b"]
+
+[ext_resource type="PackedScene" uid="uid://c4rxcm8ixdj6t" path="res://random_color_example.tscn" id="1_x1u03"]
+[ext_resource type="FontFile" uid="uid://dotd6x813rlqh" path="res://TRJNDaVinci-Display copy.otf" id="2_5i7tw"]
+[ext_resource type="Script" path="res://Scene 1/Label3D.gd" id="3_0hx8o"]
+[ext_resource type="Script" path="res://column.gd" id="3_trgn1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p54s8"]
+albedo_color = Color(0, 0, 0, 1)
+emission = Color(1, 1, 1, 1)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ngwp1"]
+sky_top_color = Color(0, 0, 0, 1)
+sky_horizon_color = Color(0.5, 0.5, 0.5, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0.5, 0.5, 0.5, 1)
+
+[sub_resource type="Sky" id="Sky_afm4p"]
+sky_material = SubResource("ProceduralSkyMaterial_ngwp1")
+
+[sub_resource type="Environment" id="Environment_vvohe"]
+background_mode = 2
+sky = SubResource("Sky_afm4p")
+tonemap_mode = 2
+
+[node name="Node3D" type="Node3D"]
+
+[node name="1" parent="." instance=ExtResource("1_x1u03")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1.56509, 0.8)
+
+[node name="2" parent="." instance=ExtResource("1_x1u03")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.565087, 0.8)
+
+[node name="3" parent="." instance=ExtResource("1_x1u03")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, -0.434913, 0.8)
+
+[node name="4" parent="." instance=ExtResource("1_x1u03")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, -1.43491, 0.8)
+
+[node name="5" parent="." instance=ExtResource("1_x1u03")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, -2.43491, 0.8)
+
+[node name="Stuff" type="Node3D" parent="."]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Stuff"]
+flip_faces = true
+radius = 246.378
+height = 211.4
+material = SubResource("StandardMaterial3D_p54s8")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Stuff"]
+environment = SubResource("Environment_vvohe")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Stuff"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, -3.63684)
+light_size = 100.0
+light_specular = 0.0
+omni_range = 17.316
+
+[node name="Camera3D" type="Camera3D" parent="Stuff"]
+transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e-16, 8.74228e-08, -3.48787e-16, -1, 0, 0, -3.91844)
+far = 10000.0
+
+[node name="Label3D2" type="Label3D" parent="Stuff"]
+transform = Transform3D(-1, 3.48787e-16, 8.74228e-08, 3.48787e-16, 1, -3.3234e-16, -8.74228e-08, -3.3234e-16, -1, 3.30182, 2.21063, -0.063262)
+text = "Hex Number:"
+font = ExtResource("2_5i7tw")
+
+[node name="column" type="Label3D" parent="Stuff"]
+transform = Transform3D(-1, 3.48787e-16, 8.74228e-08, 3.48787e-16, 1, -3.3234e-16, -8.74228e-08, -3.3234e-16, -1, -3.61089, 2.21063, -0.063262)
+text = "Hex Number:"
+font = ExtResource("2_5i7tw")
+horizontal_alignment = 2
+script = ExtResource("3_trgn1")
+
+[node name="Label3D" type="Label3D" parent="Stuff"]
+transform = Transform3D(-1, 3.48787e-16, 8.74228e-08, 3.48787e-16, 1, -3.3234e-16, -8.74228e-08, -3.3234e-16, -1, 2.47014, 2.21063, -0.0629133)
+text = "HI"
+font = ExtResource("2_5i7tw")
+horizontal_alignment = 0
+script = ExtResource("3_0hx8o")

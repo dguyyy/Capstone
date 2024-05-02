@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://bno7uyc431top"]
+
+[ext_resource type="Script" path="res://Pages.gd" id="1_7pbu2"]
+[ext_resource type="PackedScene" uid="uid://brqo3a5bgkl3u" path="res://sphere.tscn" id="2_3o1ta"]
+[ext_resource type="Script" path="res://Pages2.gd" id="3_h5d45"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u1lqh"]
+albedo_color = Color(0, 0, 0, 1)
+emission = Color(1, 1, 1, 1)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fggrl"]
+sky_top_color = Color(0, 0, 0, 1)
+sky_horizon_color = Color(0.5, 0.5, 0.5, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0.5, 0.5, 0.5, 1)
+
+[sub_resource type="Sky" id="Sky_ikau0"]
+sky_material = SubResource("ProceduralSkyMaterial_fggrl")
+
+[sub_resource type="Environment" id="Environment_6h8er"]
+background_mode = 2
+sky = SubResource("Sky_ikau0")
+tonemap_mode = 2
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Pages1" type="Node3D" parent="."]
+script = ExtResource("1_7pbu2")
+
+[node name="Sphere" parent="." instance=ExtResource("2_3o1ta")]
+visible = false
+
+[node name="Pages2" type="Node3D" parent="."]
+script = ExtResource("3_h5d45")
+
+[node name="Sphere2" parent="." instance=ExtResource("2_3o1ta")]
+visible = false
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.829959)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 0.85726)
+flip_faces = true
+radius = 246.378
+height = 211.4
+material = SubResource("StandardMaterial3D_u1lqh")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_6h8er")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 0.85726)
+light_size = 100.0
+light_specular = 0.0
+omni_range = 17.316

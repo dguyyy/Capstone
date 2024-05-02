@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://b3674huv5a8gv"]
+
+[ext_resource type="Script" path="res://scene 4.gd" id="1_23fgk"]
+[ext_resource type="PackedScene" uid="uid://brqo3a5bgkl3u" path="res://sphere.tscn" id="2_kyomj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3mpog"]
+albedo_color = Color(0, 0, 0, 1)
+emission = Color(1, 1, 1, 1)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_x12mo"]
+sky_top_color = Color(0, 0, 0, 1)
+sky_horizon_color = Color(0.5, 0.5, 0.5, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0.5, 0.5, 0.5, 1)
+
+[sub_resource type="Sky" id="Sky_qwf8r"]
+sky_material = SubResource("ProceduralSkyMaterial_x12mo")
+
+[sub_resource type="Environment" id="Environment_euop5"]
+background_mode = 2
+sky = SubResource("Sky_qwf8r")
+tonemap_mode = 2
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.829959)
+fov = 48.2
+
+[node name="scene 4" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.9653)
+script = ExtResource("1_23fgk")
+number_of_spheres = 3200
+
+[node name="Sphere" parent="." instance=ExtResource("2_kyomj")]
+visible = false
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 0.85726)
+flip_faces = true
+radius = 246.378
+height = 211.4
+material = SubResource("StandardMaterial3D_3mpog")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_euop5")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 0.85726)
+light_size = 100.0
+light_specular = 0.0
+omni_range = 17.316
